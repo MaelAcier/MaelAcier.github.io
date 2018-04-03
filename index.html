@@ -113,7 +113,8 @@
 
         <script>
 
-            var date = (new Date(Date.now() + 864e5 * 7)).toISOString();
+            //var date = (new Date(Date.now() + 864e5 * 7)).toISOString();
+            var date = '2018-07-05T18:00:00+00:00';
 
             UIkit.util.$$('[js-countdown]').forEach(function(el) {
                 UIkit.countdown(el, {date: date});
