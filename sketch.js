@@ -12,7 +12,7 @@ function draw() {
   let y = rotationY
   rotateY(radians(z));
   rotateZ(radians(x));
-  rotateX(radians(-y));
+  rotateX(radians(y));
   p.html("yzx \n Z:"+rotationZ+" X:"+ rotationX+" Y:"+rotationY)
   box(200, 200, 200);
 }
