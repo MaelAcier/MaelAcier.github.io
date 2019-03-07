@@ -7,9 +7,12 @@ function setup() {
 
 function draw() {
   background(200);
-  rotateZ(radians(rotationZ));
-  rotateX(radians(rotationX));
-  rotateY(radians(rotationY));
+  let z = rotationZ
+  let x = rotationX
+  let y = rotationY
+  rotateZ(radians(y));
+  rotateX(radians(x));
+  rotateY(radians(z));
   p.html("Z:"+rotationZ+" X:"+ rotationX+" Y:"+rotationY)
   box(200, 200, 200);
 }
