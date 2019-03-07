@@ -1,49 +1,17 @@
 <!DOCTYPE html>
-<html lang="en-gb" dir="ltr">
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Countdown - UIkit tests</title>
-        <link rel="stylesheet" href="css/uikit.min.css" />
-        <script src="js/uikit.min.js"></script>
-        <script src="js/uikit-icons.min.js"></script>
-        <script src="js/test.js"></script>
-    </head>
+	<title>codingtrain</title>
 
-    <body>
-        <div class="uk-container">
-
-            <div class="uk-background-cover uk-flex uk-flex-center uk-flex-middle uk-light" style="height: 1000px; background-image: url('frog.jpg');">
-                <h1 class="uk-heading-large">Eurocks</h1>
-                <div js-countdown>
-                    <span class="uk-countdown-number">
-                        <span class="uk-countdown-days"></span><small>j</small>
-                    </span>
-                    <span class="uk-countdown-number">
-                        <span class="uk-countdown-hours"></span><small>h</small>
-                    </span>
-                    <span class="uk-countdown-number">
-                        <span class="uk-countdown-minutes"></span><small>m</small>
-                    </span>
-                    <span class="uk-countdown-number">
-                        <span class="uk-countdown-seconds"></span><small>s</small>
-                    </span>
-                </div>   
-            </div>
-
-
-        </div>
-
-        <script>
-
-            //var date = (new Date(Date.now() + 864e5 * 7)).toISOString();
-            var date = '2018-07-05T18:00:00+00:00';
-
-            UIkit.util.$$('[js-countdown]').forEach(function(el) {
-                UIkit.countdown(el, {date: date});
-            });
-
-        </script>
-    </body>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.sound.js"></script>
+	<script type="text/javascript" src="sketch.js"></script>
+</head>
+<body>
+</body>
 </html>
