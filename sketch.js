@@ -10,9 +10,9 @@ function draw() {
   let z = rotationZ
   let x = rotationX
   let y = rotationY
-  rotateZ(radians(z));
-  rotateY(radians(x));
+  rotateY(radians(z));
+  rotateZ(radians(x));
   rotateX(radians(y));
-  p.html("zyx \n Z:"+rotationZ+" X:"+ rotationX+" Y:"+rotationY)
+  p.html("yzx \n Z:"+rotationZ+" X:"+ rotationX+" Y:"+rotationY)
   box(200, 200, 200);
 }
