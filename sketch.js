@@ -1,5 +1,11 @@
+function setup() {
+  createCanvas(100, 100, WEBGL);
+}
+
 function draw() {
-    background(220, 50);
-    fill('magenta');
-    ellipse(width / 2, height / 2, accelerationX);
-  }
+  background(200);
+  //rotateZ(radians(rotationZ));
+  rotateX(radians(rotationX));
+  //rotateY(radians(rotationY));
+  box(200, 200, 200);
+}
