@@ -7,7 +7,9 @@ let center
 var sketch = new p5(function( s ) {
     
     s.setup = function() {
-        var canvas = s.createCanvas(600, 600)
+        let size = Math.min(pendule.windowWidth,pendule.windowHeight,600)
+        var canvas = s.createCanvas(size, size)
+        var canvas = s.createCanvas(size,size)
         canvas.parent('sketch-holder')
         // createCanvas(windowWidth, windowHeight);
         s.pixelDensity(1)
@@ -22,7 +24,7 @@ var sketch = new p5(function( s ) {
         new Button(s,"right",50,s.width-50, s.height-100, () => {center.x -= 10})
         new Button(s,"left",50,s.width-150, s.height-100, () => {center.x += 10})
         new Button(s,"center",50,s.width-100, s.height-100, () => {center.x = s.width / 2; center.y = s.height / 2})
-        curseur = s.createSlider(0, 5, 1,0).class("uk-range").style('width:200px').position(50,s.height-35)
+        curseur = s.createSlider(0, 5, 1, 0).class("uk-range").style('width:200px').position(50,s.height-35)
         new Button(s,"resize",50,0, s.height-50, () => {curseur.value(1)})
 
         pendules = {
