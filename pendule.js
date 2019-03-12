@@ -77,11 +77,11 @@ class Pendule {
         sketch.fill(0)
         if (this.arm) {
             sketch.line(0, 0, this.x1, this.y1)
-            sketch.ellipse(this.x1, this.y1, this.m1/10+10, this.m1/10+10)
+            sketch.ellipse(this.x1, this.y1, (this.m1/10+10) * sizeFactor, (this.m1/10+10) * sizeFactor)
             sketch.line(this.x1, this.y1, this.x2, this.y2)
         }
         sketch.fill(this.color)
-        sketch.ellipse(this.x2, this.y2, this.m2/10+10, this.m2/10+10)
+        sketch.ellipse(this.x2, this.y2, (this.m2/10+10) * sizeFactor, (this.m2/10+10) * sizeFactor)
     }
     plot() {
         if (sketch.frameCount > 1) {
@@ -92,10 +92,10 @@ class Pendule {
         this.py2 = this.y2;
     }
     run() {
-        this.x1 = this.r1 * Math.sin(this.theta1)
-        this.y1 = this.r1 * Math.cos(this.theta1)
-        this.x2 = this.x1 + this.r2 * Math.sin(this.theta2)
-        this.y2 = this.y1 + this.r2 * Math.cos(this.theta2)
+        this.x1 = this.r1 * Math.sin(this.theta1) * sizeFactor
+        this.y1 = this.r1 * Math.cos(this.theta1) * sizeFactor
+        this.x2 = this.x1 + this.r2 * Math.sin(this.theta2) * sizeFactor
+        this.y2 = this.y1 + this.r2 * Math.cos(this.theta2) * sizeFactor
         if(this.playing) {
             this.updateEuler()
             this.calcAcceleration()
