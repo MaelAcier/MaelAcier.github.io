@@ -22,8 +22,7 @@ var sketch = new p5(function( s ) {
         new Button(s,"right",50,s.width-50, s.height-100, () => {center.x -= 10})
         new Button(s,"left",50,s.width-150, s.height-100, () => {center.x += 10})
         new Button(s,"center",50,s.width-100, s.height-100, () => {center.x = s.width / 2; center.y = s.height / 2})
-        curseur = s.createSlider(0, 5, 1,0)
-        curseur.position(50,s.height-35)
+        curseur = s.createSlider(0, 5, 1,0).class("uk-range").style('width:200px').position(50,s.height-35)
         new Button(s,"resize",50,0, s.height-50, () => {curseur.value(1)})
 
         pendules = {
