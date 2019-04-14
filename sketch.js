@@ -1,63 +1,59 @@
-let g = 9.8/60
-let dt = 1
-let time
-let pendules
-let center
+function setup() {
+    let canvas = createCanvas(windowWidth, windowHeight)
+    //let canvas = createCanvas(1000, 1000)
+    canvas.parent('sketch-holder')
+	background(255)
+    zoom = 20 // Zoom Level
+	// w = width/2
+	w = 0
+	h = height
+	/* equation = ["y = sin(x)"]
+	isEllipse = false;
+	stored = []
+	
+	input = createInput();
+	input.size(200, 40)
+	input.value("y = sin(x)")
+  input.position(w - input.width/2, height - 200);
+	
+	addButton = createButton('+');
+	addButton.size(40, 40)
+	addButton.position(w - input.width/2 + 200, height - 200)
+	addButton.mousePressed(addItem)
+	
 
-var sketch = new p5(function( s ) {
+	adjustment = 1
+    */
     
-    s.setup = function() {
-        let size = Math.min(pendule.windowWidth,pendule.windowHeight,600)
-        sizeFactor = size / 600
-        var canvas = s.createCanvas(size, size)
-        var canvas = s.createCanvas(size,size)
-        canvas.parent('sketch-holder')
-        // createCanvas(windowWidth, windowHeight);
-        s.pixelDensity(1)
-        center = {x:s.width / 2, y:s.height / 2, bx:s.width / 2, by:s.height / 2}
-        buffer = s.createGraphics(s.width, s.height)
-        buffer.background(255)
-        buffer.pixelDensity(1)
-        buffer.translate(center.x, center.y)
+    zooms = {0: 0.1, 2: 1, 20: 1, 40: 2, 60: 5, 100: 10, 150: 20}
+    deltaZooms = {0: 2, 2: 2, 20: 2, 40: 2, 60: 5, 100: 10, 150: 20}
+    quality = {0: 0.02, 2: 0.05, 20: 0.1, 40: 0.15, 60: 0.25, 100: 0.5, 150: 1} 
+    
+    var util = UIkit.util;
 
-        new Button(s,"up",50,s.width-100, s.height-150, () => {center.y += 10})
-        new Button(s,"down",50,s.width-100, s.height-50, () => {center.y -= 10})
-        new Button(s,"right",50,s.width-50, s.height-100, () => {center.x -= 10})
-        new Button(s,"left",50,s.width-150, s.height-100, () => {center.x += 10})
-        new Button(s,"center",50,s.width-100, s.height-100, () => {center.x = s.width / 2; center.y = s.height / 2})
-        curseur = s.createSlider(0, 5, 1, 0).class("uk-range").style(`width:${Math.round(200*sizeFactor)}px`).position(50,s.height-35)
-        new Button(s,"resize",50,0, s.height-50, () => {curseur.value(1)})
+    util.on(util.$('#toggle-settings'), 'click', function (e) {
+        e.preventDefault();
+        UIkit.offcanvas('#offcanvas-settings').toggle();
+    });
+    // UIkit.offcanvas('#offcanvas-settings').toggle();
+}
 
-        pendules = {
-            index: [new Pendule(125),new Pendule(100),new Pendule(80)],
-            run: () => {
-                for (i=0; i<pendules.index.length; i++) {pendules.index[i].run()}
-            },
-            play: (bool) => {
-                for (i=0; i<pendules.index.length; i++) {pendules.index[i].play(bool)}
-            },
-            showArm: (bool) => {
-                for (i=0; i<pendules.index.length; i++) {pendules.index[i].showArm(bool)}
-            },
-        }
-        pendules.play()
-    }
-  
-    s.draw = function() {
-        s.scale(curseur.value())
-        s.background(255)
-        s.imageMode(s.CORNER)
-        s.image(buffer, center.x-center.bx, center.y-center.by, s.width, s.height)
-        s.translate(center.x, center.y)
-        s.stroke(0)
-        s.strokeWeight(2)
+function draw() {
+    background(255)
+    stroke(0)
+    ellipse(windowWidth,0,100,100)
+    ellipse(windowWidth/2, windowHeight/2,100,100)
+
+    //textSize(32);
+    text('test', 1000, 30);
     
-        pendules.run()
-    
-        //pendules.index[0].theta1 += 0.01
-        //pendules.index[1].theta1 += 0.01
-    
-        time += dt
-        //createDiv(`${pendules.index[0].acceleration1}`)
-    };
-})
+	/* 
+    storedBoxes() */
+    setStep()
+	drawGrid()
+	drawAxes()
+}
+
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight)
+}

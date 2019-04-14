@@ -1,31 +1,81 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+    	<meta charset="UTF-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/uikit.min.css" />
+        <script src="js/uikit.min.js"></script>
+        <script src="js/uikit-icons.min.js"></script>
 
-	<title>Double pendule</title>
+    	<title>Graph</title>
 
-	<link rel="stylesheet" href="css/uikit.min.css" />
-    <script src="js/uikit.min.js"></script>
-    <script src="js/uikit-icons.min.js"></script>
+    	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
+    	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.js"></script>
+    	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.sound.js"></script>
+    	<script type="text/javascript" src="init.js"></script>
+    	<script type="text/javascript" src="draw.js"></script>
+    	<script type="text/javascript" src="sketch.js"></script>
+    </head>
+    <body>
+        <div class="uk-cover-container">
+            <div id="sketch-holder">
+                <!-- Our sketch will go here! -->
+            </div>
+            <div class="uk-position-cover">
 
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.sound.js"></script>
-	<script type="text/javascript" src="pendule.js"></script>
-	<script type="text/javascript" src="button.js"></script>
-	<script type="text/javascript" src="sketch.js"></script>
-	<script type="text/javascript" src="graph.js"></script>
-</head>
-<body>
-	<div id="sketch-holder">
-		<!-- Our sketch will go here! -->
-	</div>
-	<p>test</p>
-	<div id="graph-holder">
-			<!-- Our graph will go here! -->
-	</div>
-</body>
+                    <nav class="uk-navbar uk-navbar-container uk-margin">
+                        <div class="uk-container-expand">
+                            <div class="uk-navbar-left">
+                                <div class="uk-navbar-item">
+                                    <a id="toggle-settings" class="uk-button" uk-icon="ratio: 2; icon: settings"></a>
+                                    <a class="uk-button" href="#" uk-icon="ratio: 2; icon: refresh"></a>
+                                </div>
+                            </div>
+                            <div class="uk-navbar-center">
+                                <div class="uk-navbar-item">Modèle</div>
+                                <div class="uk-navbar-item">
+                                    <form>
+                                        <select class="uk-select uk-form-width-small">
+                                            <option>Malthus</option>
+                                            <option>Verhulst</option>
+                                            <option>Allee</option>
+                                            <option>Leslie</option>
+                                            <option>Lotka-Volterra</option>
+                                        </select>
+                                        <button class="uk-button uk-button-default">Button</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                
+            </div>
+        </div>
+
+        <div id="offcanvas-settings" uk-offcanvas="mode: reveal; flip: false">
+            <div class="uk-offcanvas-bar">
+                <button class="uk-offcanvas-close" type="button" uk-close></button>
+                <ul class="uk-nav uk-nav-default">
+                    <li class="uk-active"><a href="#">Active</a></li>
+                    <li class="uk-parent">
+                        <a href="#">Parent</a>
+                        <ul class="uk-nav-sub">
+                            <li><a href="#">Sub item</a></li>
+                            <li><a href="#">Sub item</a></li>
+                        </ul>
+                    </li>
+                    <li class="uk-nav-header">Header</li>
+                    <li><a href="#js-options"><span class="uk-margin-small-right" uk-icon="icon: table"></span> Item</a></li>
+                    <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: thumbnails"></span> Item</a></li>
+                    <li class="uk-nav-divider"></li>
+                    <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: trash"></span> Item</a></li>
+                </ul>
+                <h3>Title</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+        </div>
+    </body>
 </html>
