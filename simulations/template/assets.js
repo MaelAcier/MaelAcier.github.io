@@ -13,18 +13,11 @@ function exportation () {
 
 window.addEventListener("DOMContentLoaded", (event) => {
     console.log("DOM entièrement chargé et analysé");
-    loadJs()
 });
 
 window.setTimeout(() => {
     document.getElementById('code-js').innerHTML = document.getElementById('import-js').contentDocument.firstChild.childNodes[1].firstChild.innerHTML
+    // document.getElementById('code-py').innerHTML = document.getElementById('import-py').contentDocument.firstChild.childNodes[1].firstChild.innerHTML
 
     hljs.initHighlighting()
 }, 2000);
-
-function loadJs () {
-    document.getElementById('code-js').innerHTML = document.getElementById('import-js').contentDocument.firstChild.childNodes[1].firstChild.innerHTML
-    
-    hljs.initHighlighting()
-}
-
