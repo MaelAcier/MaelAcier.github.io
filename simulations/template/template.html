@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr-fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Simulations: template</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../assets/css/graphs.css" />
+
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.4/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.4/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.4/js/uikit-icons.min.js"></script>
+
+    <!-- Plotly JS-->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <!-- Highlight CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+
+    <!-- Highlight JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+
+    <!-- Fichiers code -->
+
+    <link rel="import" id="file-js" href="./javascript.js">
+    <!-- <link rel="import" id="file-py" href="./python.py"> -->
+
+</head>
+
+<body>
+
+    <div id="graph-holder"></div>
+
+    <div class="uk-position-top-left uk-padding-small" uk-inline>
+        <a id="toggle-settings" class="uk-button" uk-icon="ratio: 2; icon: settings"
+            uk-toggle="target: #offcanvas-settings"></a>
+    </div>
+
+
+    <div id="offcanvas-settings" uk-offcanvas="mode: slide; flip: false">
+        <div class="uk-offcanvas-bar uk-flex uk-flex-column uk-text-center">
+
+            <button class="uk-offcanvas-close uk-close-large" type="button" uk-close></button>
+
+            <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical uk-nav-parent-icon" uk-nav>
+                <li class="uk-active"><a href="../simulations.html">Retour au menu</a></li>
+                <li class="uk-parent">
+                    <a>
+                        Code source
+                    </a>
+                    <ul class="uk-nav-sub">
+                        <li><a href="#code-javascript" uk-toggle>Javascript</a></li>
+                        <li><a href="#code-python" uk-toggle>Python</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#exportation" uk-toggle>Exporter en image</a>
+                </li>
+            </ul>
+
+            <div>
+                <div class="uk-grid-small uk-child-width-auto uk-flex-inline" uk-grid>
+                    <div>
+                        <a class="uk-icon-button" target="_blank"
+                            href="https://github.com/MaelAcier/MaelAcier.github.io" uk-icon="icon: github"></a>
+                    </div>
+                    <div>
+                        <a class="uk-icon-button" target="_blank" href="https://getuikit.com/"
+                            uk-icon="icon: uikit"></a>
+                    </div>
+                    <div>
+                        <a class="uk-icon-button" href="#" uk-icon="icon: info"></a>
+                    </div>
+                    <div>
+                        <a class="uk-icon-button" target="_blank" href="../simulations.html" uk-icon="icon: home"></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="exportation" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body">
+            <button class="uk-modal-close-default" type="button" uk-close></button>
+            <div class="uk-modal-header">
+                <h2 class="uk-modal-title">Exportation du graphe</h2>
+            </div>
+            <div class="uk-margin-small uk-grid-small uk-child-width-1-2" uk-grid>
+
+                <form class="uk-form-stacked">
+
+                    <div class="uk-margin">
+
+                        <div class="uk-margin uk-width-auto">
+                            <label class="uk-form-label">Format</label>
+                            <select class="uk-select" id="export-format">
+                                <option>png</option>
+                                <option>svg</option>
+                                <option>jpeg</option>
+                                <option>webp</option>
+                            </select>
+                        </div>
+
+                        <div class="uk-margin uk-width-auto">
+                            <label class="uk-form-label" for="form-s-number">Echelle</label>
+                            <input class="uk-input" id="export-echelle" type="number" min="0" max="5" value="1">
+                        </div>
+
+                    </div>
+                </form>
+
+                <form class="uk-form-stacked">
+
+                    <div class="uk-margin">
+
+                        <div class="uk-margin uk-width-auto">
+                            <label class="uk-form-label" for="form-s-number">Largeur</label>
+                            <input class="uk-input" id="export-largeur" type="number" min="0" max="5000" value="700">
+                        </div>
+
+                        <div class="uk-margin uk-width-auto">
+                            <label class="uk-form-label" for="form-s-number">Hauteur</label>
+                            <input class="uk-input" id="export-hauteur" type="number" min="0" max="5000" value="500">
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+            <p class=" uk-text-right">
+                <button class="uk-button uk-button-primary uk-modal-close" type="button"
+                    onclick="exportation()">Exporter</button>
+                <p>
+        </div>
+    </div>
+
+    <div id="code-javascript" class="uk-modal-container" uk-modal>
+        <div class="uk-modal-dialog">
+
+            <button class="uk-modal-close-default" type="button" uk-close></button>
+
+            <div class="uk-modal-header">
+                <h2 class="uk-modal-title">Headline</h2>
+            </div>
+
+            <div class="uk-modal-body" uk-overflow-auto>
+
+                <pre><code class="javascript">
+                        function () {
+                            let x = 5
+                        }
+                    </code></pre>
+                <pre><code id="code-js" class="javascript">
+                        function () {
+                            let x = 5
+                        }
+                    </code></pre>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.</p>
+
+            </div>
+
+            <div class="uk-modal-footer uk-text-right">
+                <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                <button class="uk-button uk-button-primary" type="button">Save</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- <div uk-modal> -->
+        <object id="import-js" type="text/javascript" data="javascript.js" border="0">
+        </object>
+    <!-- </div> -->
+
+</body>
+
+<footer>
+
+    <!-- JS -->
+
+    <script src="assets.js"></script>
+    <script src="javascript.js"></script>
+
+</footer>
+
+</html>
