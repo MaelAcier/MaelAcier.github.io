@@ -13,7 +13,7 @@ var trace1 = {
 var data = [trace1];
 
 var layout = {
-    title: "Responsive to window's size!",
+    title: "Titre",
     font: { size: 18 }
 };
 
